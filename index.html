@@ -84,6 +84,14 @@
         body.arabic-font {
             font-family: 'Cairo', sans-serif;
         }
+        /* Custom margin for Instagram icon in Arabic version */
+        .arabic-instagram-margin {
+            margin-left: 3px; /* Apply margin-left for LTR when Arabic is active */
+        }
+        html[dir="rtl"] .arabic-instagram-margin {
+            margin-left: 0; /* Reset LTR margin */
+            margin-right: 3px; /* Apply margin-right for RTL */
+        }
     </style>
 </head>
 <body class="bg-light-background">
@@ -96,12 +104,12 @@
                 <!-- Language Toggle -->
                 <div class="mr-4 flex space-x-2">
                     <button id="lang-en" class="lang-button px-3 py-1 rounded-md transition duration-300 bg-accent-blue text-white hover:bg-primary-red hover:text-white">EN</button>
-                    <button id="lang-ar" class="lang-button px-3 py-1 rounded-md transition duration-300 bg-accent-blue text-white hover:bg-primary-red hover:text-white">عربى</button>
+                    <button id="lang-ar" class="lang-button px-3 py-1 rounded-md transition duration-300 bg-accent-blue text-white hover:bg-primary-red hover:text-white">AR</button>
                 </div>
                 <!-- Social icons or utility links can go here -->
                 <a href="#" class="mr-3 hover:text-primary-red"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="mr-3 hover:text-primary-red"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="hover:text-primary-red"><i class="fab fa-instagram"></i></a>
+
             </div>
         </div>
 
@@ -119,7 +127,7 @@
                     <!-- Arabic Logo Structure -->
                     <div id="logo-ar" class="hidden items-center">
                         <span id="arabic-logo-combined" class="text-2xl font-bold"></span>
-                        <span class="text-default-text text-sm ml-2" data-key="arabicLogoSuffix">خدمات النقل</span>
+                        <span class="text-default-text text-sm ml-2" data-key="arabicLogoSuffix">خدمات نقل عفش متكاملة</span>
                     </div>
                 </div>
 
@@ -171,7 +179,7 @@
         <div class="hero-overlay absolute inset-0"></div>
         <div class="relative z-10 p-4">
             <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 tracking-wide" data-key="heroHeading">
-                45 Years of EXPERIENCE MOVING PEOPLE
+                15 Years of EXPERIENCE MOVING FURNITURE
             </h1>
             <p class="text-lg md:text-xl mb-8" data-key="heroSubtext">“We have the know-how you need.”</p>
             <!-- Scroll Down Indicator: Positioned at the top-start and horizontally centered -->
@@ -191,7 +199,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service Card 1: Local Moves (Moving Truck) -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://static.wixstatic.com/media/f05e3433dd404116a573aaaabb4c6345.jpg/v1/fill/w_600,h_454,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Moving%20Truck.jpg" alt="Local Moves" class="w-full h-48 object-cover rounded-t-lg">
+                    <img src="images/car1.png" alt="Local Moves" class="w-full h-48 object-cover rounded-t-lg">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2 text-default-text" data-key="service1Title">Local Moves</h3>
                         <p class="text-subtext-gray text-sm" data-key="service1Desc">Efficient and reliable local moving services for a hassle-free relocation within your city.</p>
@@ -207,7 +215,7 @@
                 </div>
                 <!-- Service Card 3: Storage (Placeholder) -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://placehold.co/400x250/f0f0f0/333333?text=Storage+Facility" alt="Storage" class="w-full h-48 object-cover rounded-t-lg">
+                    <img src="images/IMG-20250308-WA0023.jpg" alt="Storage" class="w-full h-48 object-cover rounded-t-lg">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2 text-default-text" data-key="service3Title">Storage</h3>
                         <p class="text-subtext-gray text-sm" data-key="service3Desc">Secure and flexible storage solutions for short-term or long-term needs.</p>
@@ -215,7 +223,7 @@
                 </div>
                 <!-- Service Card 4: Packing (Person Taping Box) -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://static.wixstatic.com/media/nsplsh_474b38785f584363445a67~mv2_d_3024_4032_s_4_2.jpg/v1/fill/w_600,h_454,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Person%20Taping%20Box%20at%20Warehouse.jpg" alt="Packing" class="w-full h-48 object-cover rounded-t-lg">
+                    <img src="images/IMG20250315134055.jpg" alt="Packing" class="w-full h-48 object-cover rounded-t-lg">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2 text-default-text" data-key="service4Title">Packing</h3>
                         <p class="text-subtext-gray text-sm" data-key="service4Desc">Professional packing services to ensure your belongings are safe and secure during transit.</p>
@@ -223,7 +231,7 @@
                 </div>
                 <!-- Service Card 5: Transportation (Reusing Moving Truck) -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://static.wixstatic.com/media/f05e3433dd404116a573aaaabb4c6345.jpg/v1/fill/w_600,h_454,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Moving%20Truck.jpg" alt="Transportation" class="w-full h-48 object-cover rounded-t-lg">
+                    <img src="images/car1.png" alt="Transportation" class="w-full h-48 object-cover rounded-t-lg">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2 text-default-text" data-key="service5Title">Transportation</h3>
                         <p class="text-subtext-gray text-sm" data-key="service5Desc">Reliable transportation services with a modern fleet to move your goods efficiently.</p>
@@ -231,7 +239,7 @@
                 </div>
                 <!-- Service Card 6: Customs Clearance (Placeholder) -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://placehold.co/400x250/f0f0f0/333333?text=Customs+Documents" alt="Customs Clearance" class="w-full h-48 object-cover rounded-t-lg">
+                    <img src="images/IMG20250315134006.jpg" alt="Customs Clearance" class="w-full h-48 object-cover rounded-t-lg">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2 text-default-text" data-key="service6Title">Customs Clearance</h3>
                         <p class="text-subtext-gray text-sm" data-key="service6Desc">Expert assistance with customs clearance for smooth international moves.</p>
@@ -371,7 +379,7 @@
                     <div class="bg-section-background-gray p-8 rounded-lg shadow-lg border border-gray-100 text-left">
                         <h3 class="text-xl font-semibold mb-4 text-default-text" data-key="contactInfoHeading">Contact Information</h3>
                         <p class="text-subtext-gray mb-2"><i class="fas fa-map-marker-alt text-primary-red mr-3"></i> <span data-key="contactAddress">123 Moving St, Maadi, Cairo, Egypt</span></p>
-                        <p class="text-subtext-gray mb-2"><i class="fas fa-phone-alt text-primary-red mr-3"></i> <span data-key="contactPhone">+20 100 123 4567</span></p>
+                        <p class="text-subtext-gray mb-2"><i class="fas fa-phone-alt text-primary-red mr-3"></i> <span data-key="contactPhone">+20103792507</span></p>
                         <p class="text-subtext-gray mb-2"><i class="fas fa-envelope text-primary-red mr-3"></i> <span data-key="contactEmail">info@almaza.com</span></p>
                         <p class="text-subtext-gray"><i class="fas fa-clock text-primary-red mr-3"></i> <span data-key="contactHours">Mon - Fri: 9 AM - 5 PM</span></p>
                     </div>
@@ -398,8 +406,7 @@
             <div class="flex space-x-4">
                 <a href="#" class="text-white hover:text-primary-red transition duration-300"><i class="fab fa-facebook-f text-lg"></i></a>
                 <a href="#" class="text-white hover:text-primary-red transition duration-300"><i class="fab fa-twitter text-lg"></i></a>
-                <a href="#" class="text-white hover:text-primary-red transition duration-300"><i class="fab fa-instagram text-lg"></i></a>
-                <a href="#" class="text-white hover:text-primary-red transition duration-300"><i class="fab fa-linkedin-in text-lg"></i></a>
+                <a href="#" id="instagram-link" class="hover:text-primary-red"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </footer>
@@ -419,7 +426,7 @@
                 navMovingTips: "MOVING TIPS",
                 navTeam: "TEAM",
                 navContact: "CONTACT",
-                heroHeading: "45 Years of EXPERIENCE MOVING PEOPLE",
+                heroHeading: "15 Years of EXPERIENCE MOVING FURNITURE",
                 heroSubtext: "“We have the know-how you need.”",
                 scrollDown: "Scroll Down",
                 servicesHeading: "SERVICES",
@@ -457,7 +464,7 @@
                 team2Bio: "Sameer ensures all operations run smoothly and efficiently, from start to finish.",
                 team3Name: "Michael Eltoney",
                 team3Role: "Logistics Coordinator",
-                team3Bio: "Michael expertly manages logistics, ensuring timely and secure transportation.",
+                team3Bio: "يدير مايكل اللوجستيات بخبرة، مما يضمن النقل في الوقت المناسب وبأمان.",
                 contactHeading: "CONTACT",
                 formNamePlaceholder: "Name",
                 formEmailPlaceholder: "Email",
@@ -467,7 +474,7 @@
                 formSubmit: "Submit",
                 contactInfoHeading: "Contact Information",
                 contactAddress: "123 Moving St, Maadi, Cairo, Egypt",
-                contactPhone: "+20 100 123 4567",
+                contactPhone: "+20103792507",
                 contactEmail: "info@almaza.com",
                 contactHours: "Mon - Fri: 9 AM - 5 PM",
                 footerCopyright: "&copy; 2023 Almaza Moving Services. All rights reserved."
@@ -475,7 +482,7 @@
             ar: {
                 pageTitle: "خدمة نقل الألماظة",
                 arabicLogoCombined: { prefix: "ال", main: "ماظة" }, // Combined for dynamic styling
-                arabicLogoSuffix: "خدمات النقل", // Arabic suffix
+                arabicLogoSuffix: "خدمات نقل عفش متكاملة", // Arabic suffix
                 navHome: "الرئيسية",
                 navServices: "الخدمات",
                 navWhyUs: "لماذا نحن؟",
@@ -483,8 +490,8 @@
                 navMovingTips: "نصائح النقل",
                 navTeam: "الفريق",
                 navContact: "اتصل بنا",
-                heroHeading: "45 عامًا من الخبرة في نقل الأفراد",
-                heroSubtext: "“لدينا المعرفة التي تحتاجها.”",
+                heroHeading: "15 عامًا من الخبرة في نقل العفش",
+                heroSubtext: "“جميع خدمات نقل العفش بمكان واحد.”",
                 scrollDown: "مرر للأسفل",
                 servicesHeading: "الخدمات",
                 service1Title: "نقل محلي",
@@ -501,7 +508,7 @@
                 service66Desc: "مساعدة الخبراء في التخليص الجمركي لعمليات النقل الدولية السلسة.",
                 whyUsPrefix: "لماذا",
                 whyUsSuffix: " نحن؟",
-                whyUsPara1: "مع أكثر من 45 عامًا من الخبرة التي لا مثيل لها في صناعة النقل، تقف شركة الألماظة لخدمات النقل كمنارة للموثوقية والثقة. تضمن خبرتنا المتجذرة أن كل عملية نقل، سواء كانت محلية أو دولية، تتم بأقصى قدر من العناية والاحترافية. نحن نفخر بتخطيطنا الدقيق، وتنفيذنا الفعال، والتزامنا الثابت برضا العملاء.",
+                whyUsPara1: "مع أكثر من 45 عامًا من الخبرة التي لا مثيل لها في صناعة النقل، تقف شركة الألماظة لخدمات نقل عفش متكاملة كمنارة للموثوقية والثقة. تضمن خبرتنا المتجذرة أن كل عملية نقل، سواء كانت محلية أو دولية، تتم بأقصى قدر من العناية والاحترافية. نحن نفخر بتخطيطنا الدقيق، وتنفيذنا الفعال، والتزامنا الثابت برضا العملاء.",
                 whyUsPara2: "فريقنا المتفاني مجهز بالمعرفة والأدوات اللازمة للتنقل في اللوجستيات المعقدة، مما يضمن انتقالًا سلسًا لممتلكاتك. من التعبئة الآمنة إلى التسليم في الوقت المناسب والتخليص الجمركي، نحن شريكك الموثوق لتجربة نقل خالية من الإجهاد. اخترنا لراحة البال وإرث من التميز.",
                 clientsHeading: "عملاؤنا",
                 tipsHeading: "نصائح النقل",
@@ -531,10 +538,10 @@
                 formSubmit: "إرسال",
                 contactInfoHeading: "معلومات الاتصال",
                 contactAddress: "123 شارع النقل، المعادي، القاهرة، مصر",
-                contactPhone: "+20 100 123 4567",
+                contactPhone: "+20103792507",
                 contactEmail: "info@almaza.com",
                 contactHours: "الاثنين - الجمعة: 9 صباحًا - 5 مساءً",
-                footerCopyright: "&copy; 2023 الألماظة لخدمات النقل. جميع الحقوق محفوظة."
+                footerCopyright: "&copy; 2023 الألماظة لخدمات نقل عفش متكاملة. جميع الحقوق محفوظة."
             }
         };
 
@@ -590,6 +597,16 @@
                 button.classList.add('bg-accent-blue', 'text-white'); // Reset to default
             });
             document.getElementById(`lang-${lang}`).classList.add('active', 'bg-primary-red', 'text-white');
+
+            // Handle Instagram icon margin for Arabic version
+            const instagramLink = document.getElementById('instagram-link');
+            if (instagramLink) {
+                if (lang === 'ar') {
+                    instagramLink.classList.add('arabic-instagram-margin');
+                } else {
+                    instagramLink.classList.remove('arabic-instagram-margin');
+                }
+            }
 
 
             // Update the Google Maps iframe source to reflect the language
