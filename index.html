@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="pageTitle">Almaza Moving Service</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Inter (default) and Cairo (for Arabic) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2d2d2d; /* Default text color */
+        }
+        .text-primary-red {
+            color: #e30613;
+        }
+        .bg-primary-red {
+            background-color: #e30613;
+        }
+        .text-accent-blue {
+            color: #003d6a;
+        }
+        .bg-accent-blue {
+            background-color: #003d6a;
+        }
+        .text-default-text {
+            color: #2d2d2d;
+        }
+        .text-subtext-gray {
+            color: #666666;
+        }
+        .bg-light-background {
+            background-color: #ffffff;
+        }
+        .bg-section-background-gray {
+            background-color: #f9f9f9;
+        }
+        .section-heading::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #e30613;
+            margin: 8px auto 0;
+        }
+        /* Adjust margin for RTL headings if needed */
+        html[dir="rtl"] .section-heading::after {
+            margin: 8px auto 0; /* Keep centered for now, adjust if specific alignment needed */
+        }
+        .hero-section {
+            /* Updated Hero Background Image */
+            background-image: url('https://static.wixstatic.com/media/5e93128fae65401db5fe14d99c2bcf19.jpg/v1/fill/w_600,h_454,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Movers.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .hero-overlay {
+            background-color: rgba(0, 61, 106, 0.7); /* Accent Blue with transparency */
+        }
+        /* Custom scroll down animation */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        .animate-bounce-slow {
+            animation: bounce 2s infinite;
+        }
+        /* Styles for active language button */
+        .lang-button.active {
+            background-color: #e30613; /* Primary Red */
+            color: white;
+            font-weight: bold;
+        }
+        /* Specific font for Arabic text */
+        body.arabic-font {
+            font-family: 'Cairo', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-light-background">
+
+    <!-- 1. Top Header -->
+    <header class="shadow-md">
+        <!-- Top Bar (Optional - not fully visible, but good practice) -->
+        <div class="bg-accent-blue text-white text-xs py-2 px-4 md:px-8">
+            <div class="container mx-auto flex justify-end items-center">
+                <!-- Language Toggle -->
+                <div class="mr-4 flex space-x-2">
+                    <button id="lang-en" class="lang-button px-3 py-1 rounded-md transition duration-300 bg-accent-blue text-white hover:bg-primary-red hover:text-white">EN</button>
+                    <button id="lang-ar" class="lang-button px-3 py-1 rounded-md transition duration-300 bg-accent-blue text-white hover:bg-primary-red hover:text-white">AR</button>
+                </div>
+                <!-- Social icons or utility links can go here -->
+                <a href="#" class="mr-3 hover:text-primary-red"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="mr-3 hover:text-primary-red"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-primary-red"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <!-- Main Navigation Bar -->
+        <nav class="bg-white py-4 px-4 md:px-8">
+            <div class="container mx-auto flex justify-between items-center flex-wrap">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <!-- English Logo Structure -->
+                    <div id="logo-en" class="flex items-center">
+                        <span class="text-primary-red text-2xl font-bold mr-1" data-key="logoPrefix">Al</span>
+                        <span class="text-accent-blue text-2xl font-bold" data-key="logoMain">maza</span>
+                        <span class="text-default-text text-sm ml-2" data-key="logoSuffix">MOVING SERVICES</span>
+                    </div>
+                    <!-- Arabic Logo Structure -->
+                    <div id="logo-ar" class="hidden items-center">
+                        <span id="arabic-logo-combined" class="text-2xl font-bold"></span>
+                        <span class="text-default-text text-sm ml-2" data-key="arabicLogoSuffix">خدمات النقل</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Menu (Hamburger for mobile) -->
+                <div class="block lg:hidden">
+                    <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-accent-blue border-accent-blue hover:text-primary-red hover:border-primary-red">
+                        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v15z"/></svg>
+                    </button>
+                </div>
+
+                <div id="nav-content" class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0">
+                    <ul class="lg:flex justify-end flex-1 items-center">
+                        <li class="mr-6 mb-2 lg:mb-0">
+                            <a href="#" class="text-accent-blue hover:text-primary-red text-sm font-semibold uppercase relative pb-1 group" data-key="navHome">HOME</a>
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                        </li>
+                        <li class="mr-6 mb-2 lg:mb-0">
+                            <a href="#" class="text-accent-blue hover:text-primary-red text-sm font-semibold uppercase relative pb-1 group" data-key="navServices">SERVICES</a>
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                        </li>
+                        <li class="mr-6 mb-2 lg:mb-0">
+                            <a href="#" class="text-accent-blue hover:text-primary-red text-sm font-semibold uppercase relative pb-1 group" data-key="navWhyUs">WHY US?</a>
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                        </li>
+                        <li class="mr-6 mb-2 lg:mb-0">
+                            <a href="#" class="text-accent-blue hover:text-primary-red text-sm font-semibold uppercase relative pb-1 group" data-key="navClients">CLIENTS</a>
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                        </li>
+                        <li class="mr-6 mb-2 lg:mb-0">
+                            <a href="#" class="text-accent-blue hover:text-primary-red text-sm font-semibold uppercase relative pb-1 group" data-key="navMovingTips">MOVING TIPS</a>
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                        </li>
+                        <li class="mr-6 mb-2 lg:mb-0">
+                            <a href="#" class="text-accent-blue hover:text-primary-red text-sm font-semibold uppercase relative pb-1 group" data-key="navTeam">TEAM</a>
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                        </li>
+                        <li class="mb-2 lg:mb-0">
+                            <a href="#" class="text-accent-blue hover:text-primary-red text-sm font-semibold uppercase relative pb-1 group" data-key="navContact">CONTACT</a>
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section class="hero-section h-screen flex items-center justify-center text-center text-white relative overflow-hidden">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="relative z-10 p-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 tracking-wide" data-key="heroHeading">
+                45 Years of EXPERIENCE MOVING PEOPLE
+            </h1>
+            <p class="text-lg md:text-xl mb-8" data-key="heroSubtext">“We have the know-how you need.”</p>
+            <!-- Scroll Down Indicator: Positioned at the bottom and horizontally centered -->
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce-slow">
+                <a href="#services" class="text-white text-lg no-underline hover:text-primary-red transition duration-300">
+                    <i class="fas fa-chevron-down text-3xl mb-2"></i>
+                    <span class="block" data-key="scrollDown">Scroll Down</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10 section-heading inline-block text-default-text" data-key="servicesHeading">SERVICES</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1: Local Moves (Moving Truck) -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://static.wixstatic.com/media/f05e3433dd404116a573aaaabb4c6345.jpg/v1/fill/w_600,h_454,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Moving%20Truck.jpg" alt="Local Moves" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-default-text" data-key="service1Title">Local Moves</h3>
+                        <p class="text-subtext-gray text-sm" data-key="service1Desc">Efficient and reliable local moving services for a hassle-free relocation within your city.</p>
+                    </div>
+                </div>
+                <!-- Service Card 2: Door-to-Door (Delivery Guy) -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://static.wixstatic.com/media/9b941c0eabea11a94ba8c631a6217e88.jpg/v1/crop/x_0,y_86,w_393,h_297/fill/w_550,h_416,al_c,lg_1,q_80,enc_avif,quality_auto/Delivery%20Guy.jpg" alt="Door-to-Door" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-default-text" data-key="service2Title">Door-to-Door</h3>
+                        <p class="text-subtext-gray text-sm" data-key="service2Desc">Comprehensive door-to-door service, managing every step from pickup to final delivery.</p>
+                    </div>
+                </div>
+                <!-- Service Card 3: Storage (Placeholder) -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/400x250/f0f0f0/333333?text=Storage+Facility" alt="Storage" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-default-text" data-key="service3Title">Storage</h3>
+                        <p class="text-subtext-gray text-sm" data-key="service3Desc">Secure and flexible storage solutions for short-term or long-term needs.</p>
+                    </div>
+                </div>
+                <!-- Service Card 4: Packing (Person Taping Box) -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://static.wixstatic.com/media/nsplsh_474b38785f584363445a67~mv2_d_3024_4032_s_4_2.jpg/v1/fill/w_600,h_454,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image%20by%20Ruchindra%20Gunasekara.jpg" alt="Packing" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-default-text" data-key="service4Title">Packing</h3>
+                        <p class="text-subtext-gray text-sm" data-key="service4Desc">Professional packing services to ensure your belongings are safe and secure during transit.</p>
+                    </div>
+                </div>
+                <!-- Service Card 5: Transportation (Reusing Moving Truck) -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://static.wixstatic.com/media/f05e3433dd404116a573aaaabb4c6345.jpg/v1/fill/w_600,h_454,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Moving%20Truck.jpg" alt="Transportation" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-default-text" data-key="service5Title">Transportation</h3>
+                        <p class="text-subtext-gray text-sm" data-key="service5Desc">Reliable transportation services with a modern fleet to move your goods efficiently.</p>
+                    </div>
+                </div>
+                <!-- Service Card 6: Customs Clearance (Placeholder) -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/400x250/f0f0f0/333333?text=Customs+Documents" alt="Customs Clearance" class="w-full h-48 object-cover rounded-t-lg">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-default-text" data-key="service6Title">Customs Clearance</h3>
+                        <p class="text-subtext-gray text-sm" data-key="service6Desc">Expert assistance with customs clearance for smooth international moves.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Why Us? Section -->
+    <section class="py-16 bg-section-background-gray">
+        <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="text-center lg:text-left">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-default-text">
+                    <span class="text-primary-red" data-key="whyUsPrefix">WHY</span> <span data-key="whyUsSuffix">US?</span>
+                </h2>
+                <p class="text-lg text-subtext-gray leading-relaxed" data-key="whyUsPara1">
+                    With over 45 years of unparalleled experience in the moving industry, Almaza Moving Services stands as a beacon of reliability and trust. Our deep-rooted expertise ensures that every move, whether local or international, is handled with the utmost care and professionalism. We pride ourselves on our meticulous planning, efficient execution, and unwavering commitment to customer satisfaction.
+                </p>
+                <p class="text-lg text-subtext-gray leading-relaxed mt-4" data-key="whyUsPara2">
+                    Our dedicated team is equipped with the knowledge and tools to navigate complex logistics, ensuring a seamless transition for your belongings. From secure packing to timely delivery and customs clearance, we are your trusted partner for a stress-free moving experience. Choose us for peace of mind and a legacy of excellence.
+                </p>
+            </div>
+            <div class="flex justify-center lg:justify-end">
+                <!-- Updated Why Us? Image -->
+                <img src="https://static.wixstatic.com/media/1b402ae4065641b7823d9c1c557ec473.jpg/v1/fill/w_600,h_454,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Person%20Taping%20Box%20at%20Warehouse.jpg" alt="Organized Warehouse" class="rounded-lg shadow-lg max-w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Clients Section -->
+    <section class="py-16 bg-primary-red text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10" data-key="clientsHeading">OUR CLIENTS</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
+                <img src="https://placehold.co/150x80/e30613/ffffff?text=SHELL" alt="Shell Logo" class="max-w-full h-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+                <img src="https://placehold.co/150x80/e30613/ffffff?text=SIEMENS" alt="Siemens Logo" class="max-w-full h-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+                <img src="https://placehold.co/150x80/e30613/ffffff?text=PEPSI" alt="Pepsi Logo" class="max-w-full h-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+                <img src="https://placehold.co/150x80/e30613/ffffff?text=RED+BULL" alt="Red Bull Logo" class="max-w-full h-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+                <img src="https://placehold.co/150x80/e30613/ffffff?text=SCHLUMBERGER" alt="Schlumberger Logo" class="max-w-full h-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Moving Tips Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10 section-heading inline-block text-default-text" data-key="tipsHeading">MOVING TIPS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tip Card 1 -->
+                <div class="bg-white rounded-lg shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl mb-4 text-accent-blue"><i class="fas fa-box-open"></i></div>
+                    <h3 class="text-xl font-semibold mb-2 text-default-text" data-key="tip1Title">About Moving</h3>
+                    <p class="text-subtext-gray text-sm mb-4" data-key="tip1Desc">Discover essential tips for a smooth and organized moving process, from planning to execution.</p>
+                    <a href="#" class="text-primary-red font-medium hover:underline" data-key="readMore">Read more &rarr;</a>
+                </div>
+                <!-- Tip Card 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl mb-4 text-accent-blue"><i class="fas fa-boxes"></i></div>
+                    <h3 class="text-xl font-semibold mb-2 text-default-text" data-key="tip2Title">About Packing</h3>
+                    <p class="text-subtext-gray text-sm mb-4" data-key="tip2Desc">Learn the best strategies for packing your belongings safely and efficiently.</p>
+                    <a href="#" class="text-primary-red font-medium hover:underline" data-key="readMore">Read more &rarr;</a>
+                </div>
+                <!-- Tip Card 3 -->
+                <div class="bg-white rounded-lg shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl mb-4 text-accent-blue"><i class="fas fa-truck-moving"></i></div>
+                    <h3 class="text-xl font-semibold mb-2 text-default-text" data-key="tip3Title">Moving Day Checklist</h3>
+                    <p class="text-subtext-gray text-sm mb-4" data-key="tip3Desc">A comprehensive checklist to ensure nothing is forgotten on your moving day.</p>
+                    <a href="#" class="text-primary-red font-medium hover:underline" data-key="readMore">Read more &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Meet the Team Section -->
+    <section class="py-16 bg-section-background-gray">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10 section-heading inline-block text-default-text" data-key="teamHeading">MEET THE TEAM</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Team Member 1 -->
+                <div class="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://static.wixstatic.com/media/d31ff127fc234a64a3f45b143b7605b1.jpg/v1/fill/w_475,h_724,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/d31ff127fc234a64a3f45b143b7605b1.jpg" alt="Eltoney Soliman" class="w-36 h-36 rounded-full object-cover mb-4 border-4 border-primary-red">
+                    <h3 class="text-xl font-semibold text-default-text" data-key="team1Name">Eltoney Soliman</h3>
+                    <p class="text-subtext-gray text-sm mb-3" data-key="team1Role">Founder & CEO</p>
+                    <p class="text-subtext-gray text-center text-sm" data-key="team1Bio">With decades of experience, Eltoney leads our team with vision and dedication.</p>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://static.wixstatic.com/media/nsplsh_476f705259415366734f63~mv2_d_5768_3845_s_4_2.jpg/v1/fill/w_475,h_724,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/nsplsh_476f705259415366734f63~mv2_d_5768_3845_s_4_2.jpg" alt="Sameer Eltoney" class="w-36 h-36 rounded-full object-cover mb-4 border-4 border-primary-red">
+                    <h3 class="text-xl font-semibold text-default-text" data-key="team2Name">Sameer Eltoney</h3>
+                    <p class="text-subtext-gray text-sm mb-3" data-key="team2Role">Operations Manager</p>
+                    <p class="text-subtext-gray text-center text-sm" data-key="team2Bio">Sameer ensures all operations run smoothly and efficiently, from start to finish.</p>
+                </div>
+                <!-- Team Member 3 (Placeholder) -->
+                <div class="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                    <img src="https://placehold.co/150x150/f0f0f0/333333?text=Michael" alt="Michael Eltoney" class="w-36 h-36 rounded-full object-cover mb-4 border-4 border-primary-red">
+                    <h3 class="text-xl font-semibold text-default-text" data-key="team3Name">Michael Eltoney</h3>
+                    <p class="text-subtext-gray text-sm mb-3" data-key="team3Role">Logistics Coordinator</p>
+                    <p class="text-subtext-gray text-center text-sm" data-key="team3Bio">Michael expertly manages logistics, ensuring timely and secure transportation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Contact Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10 section-heading inline-block text-default-text" data-key="contactHeading">CONTACT</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <!-- Left Column: Contact Form -->
+                <div class="bg-section-background-gray p-8 rounded-lg shadow-lg border border-gray-100">
+                    <form>
+                        <div class="mb-4">
+                            <input type="text" placeholder="Name" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-red" required data-key="formNamePlaceholder">
+                        </div>
+                        <div class="mb-4">
+                            <input type="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-red" required data-key="formEmailPlaceholder">
+                        </div>
+                        <div class="mb-4">
+                            <input type="text" placeholder="Subject" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-red" data-key="formSubjectPlaceholder">
+                        </div>
+                        <div class="mb-4">
+                            <textarea placeholder="Message" rows="5" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-red" required data-key="formMessagePlaceholder"></textarea>
+                        </div>
+                        <div class="mb-6 flex items-center">
+                            <input type="checkbox" id="more-services" class="mr-2 rounded text-primary-red focus:ring-primary-red">
+                            <label for="more-services" class="text-subtext-gray text-sm" data-key="formCheckbox">I want to know more about other services</label>
+                        </div>
+                        <button type="submit" class="w-full bg-accent-blue text-white py-3 px-6 rounded-md font-semibold hover:bg-primary-red transition duration-300 shadow-md" data-key="formSubmit">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Right Column: Company Contact Info & Map -->
+                <div class="flex flex-col space-y-8">
+                    <div class="bg-section-background-gray p-8 rounded-lg shadow-lg border border-gray-100 text-left">
+                        <h3 class="text-xl font-semibold mb-4 text-default-text" data-key="contactInfoHeading">Contact Information</h3>
+                        <p class="text-subtext-gray mb-2"><i class="fas fa-map-marker-alt text-primary-red mr-3"></i> <span data-key="contactAddress">123 Moving St, Maadi, Cairo, Egypt</span></p>
+                        <p class="text-subtext-gray mb-2"><i class="fas fa-phone-alt text-primary-red mr-3"></i> <span data-key="contactPhone">+20 100 123 4567</span></p>
+                        <p class="text-subtext-gray mb-2"><i class="fas fa-envelope text-primary-red mr-3"></i> <span data-key="contactEmail">info@almaza.com</span></p>
+                        <p class="text-subtext-gray"><i class="fas fa-clock text-primary-red mr-3"></i> <span data-key="contactHours">Mon - Fri: 9 AM - 5 PM</span></p>
+                    </div>
+                    <div class="w-full h-80 rounded-lg overflow-hidden shadow-lg border border-gray-100">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.7915357997637!2d31.25838041505322!3d30.04441958188265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145838f078e6c46b%3A0x6b8d9c5b2a0c6a8!2sMaadi%2C%20Cairo%20Governorate%2C%20Egypt!5e0!3m2!1sen!2sus!4v1678901234567!5m2!1sen!2sus"
+                            width="100%"
+                            height="100%"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Footer -->
+    <footer class="bg-accent-blue text-white py-8 px-4 md:px-8">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <p class="text-sm mb-4 md:mb-0" data-key="footerCopyright">&copy; 2023 Almaza Moving Services. All rights reserved.</p>
+            <div class="flex space-x-4">
+                <a href="#" class="text-white hover:text-primary-red transition duration-300"><i class="fab fa-facebook-f text-lg"></i></a>
+                <a href="#" class="text-white hover:text-primary-red transition duration-300"><i class="fab fa-twitter text-lg"></i></a>
+                <a href="#" class="text-white hover:text-primary-red transition duration-300"><i class="fab fa-instagram text-lg"></i></a>
+                <a href="#" class="text-white hover:text-primary-red transition duration-300"><i class="fab fa-linkedin-in text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language translations object
+        const translations = {
+            en: {
+                pageTitle: "Almaza Moving Service",
+                logoPrefix: "Al", // Added for logo split
+                logoMain: "maza", // Added for logo split
+                logoSuffix: "MOVING SERVICES", // English suffix
+                navHome: "HOME",
+                navServices: "SERVICES",
+                navWhyUs: "WHY US?",
+                navClients: "CLIENTS",
+                navMovingTips: "MOVING TIPS",
+                navTeam: "TEAM",
+                navContact: "CONTACT",
+                heroHeading: "45 Years of EXPERIENCE MOVING PEOPLE",
+                heroSubtext: "“We have the know-how you need.”",
+                scrollDown: "Scroll Down",
+                servicesHeading: "SERVICES",
+                service1Title: "Local Moves",
+                service1Desc: "Efficient and reliable local moving services for a hassle-free relocation within your city.",
+                service2Title: "Door-to-Door",
+                service2Desc: "Comprehensive door-to-door service, managing every step from pickup to final delivery.",
+                service3Title: "Storage",
+                service3Desc: "Secure and flexible storage solutions for short-term or long-term needs.",
+                service4Title: "Packing",
+                service4Desc: "Professional packing services to ensure your belongings are safe and secure during transit.",
+                service5Title: "Transportation",
+                service5Desc: "Reliable transportation services with a modern fleet to move your goods efficiently.",
+                service6Title: "Customs Clearance",
+                service6Desc: "Expert assistance with customs clearance for smooth international moves.",
+                whyUsPrefix: "WHY",
+                whyUsSuffix: " US?",
+                whyUsPara1: "With over 45 years of unparalleled experience in the moving industry, Almaza Moving Services stands as a beacon of reliability and trust. Our deep-rooted expertise ensures that every move, whether local or international, is handled with the utmost care and professionalism. We pride ourselves on our meticulous planning, efficient execution, and unwavering commitment to customer satisfaction.",
+                whyUsPara2: "Our dedicated team is equipped with the knowledge and tools to navigate complex logistics, ensuring a seamless transition for your belongings. From secure packing to timely delivery and customs clearance, we are your trusted partner for a stress-free moving experience. Choose us for peace of mind and a legacy of excellence.",
+                clientsHeading: "OUR CLIENTS",
+                tipsHeading: "MOVING TIPS",
+                tip1Title: "About Moving",
+                tip1Desc: "Discover essential tips for a smooth and organized moving process, from planning to execution.",
+                tip2Title: "About Packing",
+                tip2Desc: "Learn the best strategies for packing your belongings safely and efficiently.",
+                tip3Title: "Moving Day Checklist",
+                tip3Desc: "A comprehensive checklist to ensure nothing is forgotten on your moving day.",
+                readMore: "Read more →",
+                teamHeading: "MEET THE TEAM",
+                team1Name: "Eltoney Soliman",
+                team1Role: "Founder & CEO",
+                team1Bio: "With decades of experience, Eltoney leads our team with vision and dedication.",
+                team2Name: "Sameer Eltoney",
+                team2Role: "Operations Manager",
+                team2Bio: "Sameer ensures all operations run smoothly and efficiently, from start to finish.",
+                team3Name: "Michael Eltoney",
+                team3Role: "Logistics Coordinator",
+                team3Bio: "Michael expertly manages logistics, ensuring timely and secure transportation.",
+                contactHeading: "CONTACT",
+                formNamePlaceholder: "Name",
+                formEmailPlaceholder: "Email",
+                formSubjectPlaceholder: "Subject",
+                formMessagePlaceholder: "Message",
+                formCheckbox: "I want to know more about other services",
+                formSubmit: "Submit",
+                contactInfoHeading: "Contact Information",
+                contactAddress: "123 Moving St, Maadi, Cairo, Egypt",
+                contactPhone: "+20 100 123 4567",
+                contactEmail: "info@almaza.com",
+                contactHours: "Mon - Fri: 9 AM - 5 PM",
+                footerCopyright: "&copy; 2023 Almaza Moving Services. All rights reserved."
+            },
+            ar: {
+                pageTitle: "خدمة نقل الألماظة",
+                arabicLogoCombined: { prefix: "ال", main: "ماظة" }, // Combined for dynamic styling
+                arabicLogoSuffix: "خدمات النقل", // Arabic suffix
+                navHome: "الرئيسية",
+                navServices: "الخدمات",
+                navWhyUs: "لماذا نحن؟",
+                navClients: "العملاء",
+                navMovingTips: "نصائح النقل",
+                navTeam: "الفريق",
+                navContact: "اتصل بنا",
+                heroHeading: "45 عامًا من الخبرة في نقل الأفراد",
+                heroSubtext: "“لدينا المعرفة التي تحتاجها.”",
+                scrollDown: "مرر للأسفل",
+                servicesHeading: "الخدمات",
+                service1Title: "نقل محلي",
+                service1Desc: "خدمات نقل محلية فعالة وموثوقة لتجربة نقل خالية من المتاعب داخل مدينتك.",
+                service2Title: "من الباب للباب",
+                service2Desc: "خدمة شاملة من الباب للباب، تدير كل خطوة من الاستلام إلى التسليم النهائي.",
+                service3Title: "تخزين",
+                service3Desc: "حلول تخزين آمنة ومرنة للاحتياجات قصيرة أو طويلة الأجل.",
+                service4Title: "تعبئة",
+                service4Desc: "خدمات تعبئة احترافية لضمان سلامة وأمان ممتلكاتك أثناء النقل.",
+                service5Title: "نقل",
+                service5Desc: "خدمات نقل موثوقة بأسطول حديث لنقل بضائعك بكفاءة.",
+                service6Title: "تخليص جمركي",
+                service6Desc: "مساعدة الخبراء في التخليص الجمركي لعمليات النقل الدولية السلسة.",
+                whyUsPrefix: "لماذا",
+                whyUsSuffix: " نحن؟",
+                whyUsPara1: "مع أكثر من 45 عامًا من الخبرة التي لا مثيل لها في صناعة النقل، تقف شركة الألماظة لخدمات النقل كمنارة للموثوقية والثقة. تضمن خبرتنا المتجذرة أن كل عملية نقل، سواء كانت محلية أو دولية، تتم بأقصى قدر من العناية والاحترافية. نحن نفخر بتخطيطنا الدقيق، وتنفيذنا الفعال، والتزامنا الثابت برضا العملاء.",
+                whyUsPara2: "فريقنا المتفاني مجهز بالمعرفة والأدوات اللازمة للتنقل في اللوجستيات المعقدة، مما يضمن انتقالًا سلسًا لممتلكاتك. من التعبئة الآمنة إلى التسليم في الوقت المناسب والتخليص الجمركي، نحن شريكك الموثوق لتجربة نقل خالية من الإجهاد. اخترنا لراحة البال وإرث من التميز.",
+                clientsHeading: "عملاؤنا",
+                tipsHeading: "نصائح النقل",
+                tip1Title: "عن النقل",
+                tip1Desc: "اكتشف النصائح الأساسية لعملية نقل سلسة ومنظمة، من التخطيط إلى التنفيذ.",
+                tip2Title: "عن التعبئة",
+                tip2Desc: "تعلم أفضل الاستراتيجيات لتعبئة ممتلكاتك بأمان وكفاءة.",
+                tip3Title: "قائمة التحقق ليوم النقل",
+                tip3Desc: "قائمة تحقق شاملة لضمان عدم نسيان أي شيء في يوم نقلك.",
+                readMore: "اقرأ المزيد ←",
+                teamHeading: "قابل الفريق",
+                team1Name: "التوني سليمان",
+                team1Role: "المؤسس والرئيس التنفيذي",
+                team1Bio: "بخبرة عقود، يقود التوني فريقنا برؤية وتفانٍ.",
+                team2Name: "سمير التوني",
+                team2Role: "مدير العمليات",
+                team2Bio: "يضمن سمير سير جميع العمليات بسلاسة وكفاءة، من البداية إلى النهاية.",
+                team3Name: "مايكل التوني",
+                team3Role: "منسق لوجستيات",
+                team3Bio: "يدير مايكل اللوجستيات بخبرة، مما يضمن النقل في الوقت المناسب وبأمان.",
+                contactHeading: "اتصل بنا",
+                formNamePlaceholder: "الاسم",
+                formEmailPlaceholder: "البريد الإلكتروني",
+                formSubjectPlaceholder: "الموضوع",
+                formMessagePlaceholder: "الرسالة",
+                formCheckbox: "أرغب في معرفة المزيد عن الخدمات الأخرى",
+                formSubmit: "إرسال",
+                contactInfoHeading: "معلومات الاتصال",
+                contactAddress: "123 شارع النقل، المعادي، القاهرة، مصر",
+                contactPhone: "+20 100 123 4567",
+                contactEmail: "info@almaza.com",
+                contactHours: "الاثنين - الجمعة: 9 صباحًا - 5 مساءً",
+                footerCopyright: "&copy; 2023 الألماظة لخدمات النقل. جميع الحقوق محفوظة."
+            }
+        };
+
+        // Function to set the language
+        function setLanguage(lang) {
+            // Update all elements with data-key
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                // Skip the combined Arabic logo span as it's handled separately
+                if (element.id === 'arabic-logo-combined') {
+                    return;
+                }
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+
+            // Handle logo visibility and content
+            const logoEn = document.getElementById('logo-en');
+            const logoAr = document.getElementById('logo-ar');
+            const arabicLogoCombinedSpan = document.getElementById('arabic-logo-combined');
+            const bodyElement = document.body; // Get the body element
+
+            if (lang === 'ar') {
+                logoEn.classList.add('hidden');
+                logoAr.classList.remove('hidden');
+                document.documentElement.setAttribute('dir', 'rtl');
+                bodyElement.classList.add('arabic-font'); // Add Arabic font class
+
+                // Dynamically set the Arabic logo with colored parts
+                const prefix = translations.ar.arabicLogoCombined.prefix;
+                const main = translations.ar.arabicLogoCombined.main;
+                arabicLogoCombinedSpan.innerHTML = `
+                    <span class="text-primary-red">${prefix}</span><span class="text-accent-blue">${main}</span>
+                `;
+                // No need to apply arabic-logo-font here, as it's applied to body
+
+            } else {
+                logoAr.classList.add('hidden');
+                logoEn.classList.remove('hidden');
+                document.documentElement.setAttribute('dir', 'ltr');
+                bodyElement.classList.remove('arabic-font'); // Remove Arabic font class
+            }
+
+            // Update active button styling
+            document.querySelectorAll('.lang-button').forEach(button => {
+                button.classList.remove('active');
+                button.classList.remove('bg-primary-red', 'text-white');
+                button.classList.add('bg-accent-blue', 'text-white'); // Reset to default
+            });
+            document.getElementById(`lang-${lang}`).classList.add('active', 'bg-primary-red', 'text-white');
+
+
+            // Update the Google Maps iframe source to reflect the language
+            const mapIframe = document.querySelector('iframe'); // Select iframe directly
+            if (mapIframe) {
+                const currentSrc = mapIframe.src;
+                // Use a regex to replace the hl parameter, or add it if it doesn't exist
+                let newSrc;
+                if (currentSrc.includes('hl=')) {
+                    newSrc = currentSrc.replace(/hl=[a-z]{2}/, `hl=${lang}`);
+                } else {
+                    newSrc = `${currentSrc}&hl=${lang}`;
+                }
+                mapIframe.src = newSrc;
+            }
+        }
+
+        // Event listeners for language buttons
+        document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+        document.getElementById('lang-ar').addEventListener('click', () => setLanguage('ar'));
+
+        // Set default language on load
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage('en'); // Default to English
+        });
+
+        // Smooth scroll for "Scroll Down" button
+        document.querySelector('a[href="#services"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Toggle mobile navigation
+        document.getElementById('nav-toggle').onclick = function () {
+            document.getElementById('nav-content').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
