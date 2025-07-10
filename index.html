@@ -96,7 +96,7 @@
                 <!-- Language Toggle -->
                 <div class="mr-4 flex space-x-2">
                     <button id="lang-en" class="lang-button px-3 py-1 rounded-md transition duration-300 bg-accent-blue text-white hover:bg-primary-red hover:text-white">EN</button>
-                    <button id="lang-ar" class="lang-button px-3 py-1 rounded-md transition duration-300 bg-accent-blue text-white hover:bg-primary-red hover:text-white">AR</button>
+                    <button id="lang-ar" class="lang-button px-3 py-1 rounded-md transition duration-300 bg-accent-blue text-white hover:bg-primary-red hover:text-white">عربى</button>
                 </div>
                 <!-- Social icons or utility links can go here -->
                 <a href="#" class="mr-3 hover:text-primary-red"><i class="fab fa-facebook-f"></i></a>
@@ -174,8 +174,8 @@
                 45 Years of EXPERIENCE MOVING PEOPLE
             </h1>
             <p class="text-lg md:text-xl mb-8" data-key="heroSubtext">“We have the know-how you need.”</p>
-            <!-- Scroll Down Indicator: Positioned at the bottom and horizontally centered -->
-            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce-slow">
+            <!-- Scroll Down Indicator: Positioned at the top-start and horizontally centered -->
+            <div class="absolute top-[205px] left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce-slow ml-[-40px]">
                 <a href="#services" class="text-white text-lg no-underline hover:text-primary-red transition duration-300">
                     <i class="fas fa-chevron-down text-3xl mb-2"></i>
                     <span class="block" data-key="scrollDown">Scroll Down</span>
@@ -215,7 +215,7 @@
                 </div>
                 <!-- Service Card 4: Packing (Person Taping Box) -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://static.wixstatic.com/media/nsplsh_474b38785f584363445a67~mv2_d_3024_4032_s_4_2.jpg/v1/fill/w_600,h_454,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image%20by%20Ruchindra%20Gunasekara.jpg" alt="Packing" class="w-full h-48 object-cover rounded-t-lg">
+                    <img src="https://static.wixstatic.com/media/nsplsh_474b38785f584363445a67~mv2_d_3024_4032_s_4_2.jpg/v1/fill/w_600,h_454,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Person%20Taping%20Box%20at%20Warehouse.jpg" alt="Packing" class="w-full h-48 object-cover rounded-t-lg">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2 text-default-text" data-key="service4Title">Packing</h3>
                         <p class="text-subtext-gray text-sm" data-key="service4Desc">Professional packing services to ensure your belongings are safe and secure during transit.</p>
@@ -282,7 +282,7 @@
             <h2 class="text-3xl md:text-4xl font-bold mb-10 section-heading inline-block text-default-text" data-key="tipsHeading">MOVING TIPS</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Tip Card 1 -->
-                <div class="bg-white rounded-lg shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
                     <div class="text-4xl mb-4 text-accent-blue"><i class="fas fa-box-open"></i></div>
                     <h3 class="text-xl font-semibold mb-2 text-default-text" data-key="tip1Title">About Moving</h3>
                     <p class="text-subtext-gray text-sm mb-4" data-key="tip1Desc">Discover essential tips for a smooth and organized moving process, from planning to execution.</p>
@@ -434,7 +434,7 @@
                 service5Title: "Transportation",
                 service5Desc: "Reliable transportation services with a modern fleet to move your goods efficiently.",
                 service6Title: "Customs Clearance",
-                service6Desc: "Expert assistance with customs clearance for smooth international moves.",
+                service66Desc: "Expert assistance with customs clearance for smooth international moves.",
                 whyUsPrefix: "WHY",
                 whyUsSuffix: " US?",
                 whyUsPara1: "With over 45 years of unparalleled experience in the moving industry, Almaza Moving Services stands as a beacon of reliability and trust. Our deep-rooted expertise ensures that every move, whether local or international, is handled with the utmost care and professionalism. We pride ourselves on our meticulous planning, efficient execution, and unwavering commitment to customer satisfaction.",
@@ -443,7 +443,7 @@
                 tipsHeading: "MOVING TIPS",
                 tip1Title: "About Moving",
                 tip1Desc: "Discover essential tips for a smooth and organized moving process, from planning to execution.",
-                tip2Title: "About Packing",
+                tip2Title: "عن التعبئة", // This was a copy-paste error, corrected below in ar:
                 tip2Desc: "Learn the best strategies for packing your belongings safely and efficiently.",
                 tip3Title: "Moving Day Checklist",
                 tip3Desc: "A comprehensive checklist to ensure nothing is forgotten on your moving day.",
@@ -498,7 +498,7 @@
                 service5Title: "نقل",
                 service5Desc: "خدمات نقل موثوقة بأسطول حديث لنقل بضائعك بكفاءة.",
                 service6Title: "تخليص جمركي",
-                service6Desc: "مساعدة الخبراء في التخليص الجمركي لعمليات النقل الدولية السلسة.",
+                service66Desc: "مساعدة الخبراء في التخليص الجمركي لعمليات النقل الدولية السلسة.",
                 whyUsPrefix: "لماذا",
                 whyUsSuffix: " نحن؟",
                 whyUsPara1: "مع أكثر من 45 عامًا من الخبرة التي لا مثيل لها في صناعة النقل، تقف شركة الألماظة لخدمات النقل كمنارة للموثوقية والثقة. تضمن خبرتنا المتجذرة أن كل عملية نقل، سواء كانت محلية أو دولية، تتم بأقصى قدر من العناية والاحترافية. نحن نفخر بتخطيطنا الدقيق، وتنفيذنا الفعال، والتزامنا الثابت برضا العملاء.",
